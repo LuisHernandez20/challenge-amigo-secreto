@@ -5,6 +5,7 @@ function limpiarElemento(elemento) {
     document.getElementById(elemento).value = '';
     document.getElementById(elemento).innerHTML = "";
     
+    
 }
 
 function agregarElementoLista(elemento, texto) {
@@ -23,6 +24,13 @@ function agregarAmigo() {
         limpiarElemento('amigo');
 
     } else {
+        if (listaAmigos.includes(nombreDeAmigo)) {
+            alert("El amigo ya existe en la lista, inserta uno diferente");
+            limpiarElemento('amigo');
+            
+            return;
+          }
+          else{
         //El usuario ingreso la informacion correcta.
      console.log(listaAmigos);
      listaAmigos.push(nombreDeAmigo);
@@ -30,6 +38,7 @@ function agregarAmigo() {
      agregarElementoLista('listaAmigos',`${nombreDeAmigo}`);
 
      limpiarElemento('amigo');
+    } 
     }
     return;
 }
